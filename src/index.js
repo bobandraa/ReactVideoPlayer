@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+const APY_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv'
+
 // Create new component that produces HTML.
 
 // const App = function() {

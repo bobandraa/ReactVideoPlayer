@@ -20,7 +20,13 @@ import React, { Component } from 'react'; //import 'React' and pull off the prop
 // Refactored with arrow functions. Same as above.
 class SearchBar extends Component {
   render () {
-    return <input onChange={evt => console.log(evt.target.value)} />; //evt handler passed on element to be monitored. 'onChange' is a react defined property.
+    return (
+      <div>
+        <input
+        value={this.state.term}
+        onChange={evt => console.log(evt.target.value)} />;
+      </div>
+    )
   }
 
 };

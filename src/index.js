@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+
 import SearchBar from './components/search_bar'; //Needs relative path when importing anything but libraries
+
+const APY_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv'
+
 
 // Create new component that produces HTML.
 

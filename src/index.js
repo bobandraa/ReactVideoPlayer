@@ -4,7 +4,8 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar'; //Needs relative path when importing anything but libraries
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-const API_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv-AxLLxE';
+const API_KEY = process.env.API_KEY;
+
 
 
 // Create new component that produces HTML.
@@ -19,7 +20,6 @@ const API_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv-AxLLxE';
     //     </div>
     //   );
     // };
-
 class App extends Component {
   constructor(props){
     super(props);

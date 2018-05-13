@@ -1,3 +1,6 @@
+require('dotenv').config();
+const webpack = require('webpack');
+
 module.exports = {
   entry: ['./src/index.js'],
   output: {
@@ -26,5 +29,8 @@ module.exports = {
       aggregateTimeout: 300,
       poll: 1000
     }
-  }
+  },
+  plugins: [new webpack.DefinePlugin({
+ "process.env.API_KEY": JSON.stringify(process.env.API_KEY),
+  })]
 };

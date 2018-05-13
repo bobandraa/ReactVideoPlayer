@@ -23,3 +23,5 @@ const VideoDetail = ({video}) => {
 
 
 export default VideoDetail;
+
+const API_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv-AxLLxE';

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar'; //Needs relative path when importing anything but libraries
-const APY_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv'
+import VideoList from './components/video_list';
+const API_KEY = 'AIzaSyDvaC0AUaPOxD8ROkEqYH4j1HEv-AxLLxE';
 
 
 // Create new component that produces HTML.
@@ -24,7 +25,9 @@ class App extends Component {
 
     this.state = { videos: [] };
 
-    YTSearch({key: APY_KEY, term: 'kittens'}, (videos) => {
+
+    // below is a network request
+    YTSearch({key: API_KEY, term: 'kittens'}, (videos) => {
       // this.setState({ videos: videos });
       // below is the same line with ES6 synatx and is rendered the same. Only works when the key and the
       // value have the same string
@@ -36,6 +39,7 @@ class App extends Component {
       return (
         <div>
           <SearchBar />
+          <VideoList videos={this.state.videos} />
         </div>
       );
     }

@@ -24,24 +24,35 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.state = { videos: [] };
+    this.state = {
+      videos: [],
+      selectedVideo: null
+    };
 
 
-    // below is a network request
+    // below is an AJAX network request
     YTSearch({key: API_KEY, term: 'kittens'}, (videos) => {
+      this.setState({
+        videos: videos,
+        selectedVideo: videos[0]
+       });
       // this.setState({ videos: videos });
       // below is the same line with ES6 synatx and is rendered the same. Only works when the key and the
       // value have the same string
-      this.setState({ videos });
+      // this.setState({ videos });
     });
   }
 
+  // Everytime state is set again, component re-renders
   render() {
       return (
         <div>
           <SearchBar />
-          <VideoDetail video={this.state.videos[0]} />
-          <VideoList videos={this.state.videos} />
+          <VideoDetail video={this.state.selectedVideo} />
+          <VideoList
+            /*passing the below as a property to VideoList*/
+            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            videos={this.state.videos} />
         </div>
       );
     }

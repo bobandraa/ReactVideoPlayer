@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -43,11 +44,17 @@ class App extends Component {
     });
   }
 
+
+
+
   // Everytime state is set again, component re-renders
   render() {
+      // Throttling search with lodashs debounce function
+      const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
       return (
         <div>
-          <SearchBar />
+          <SearchBar onSearchTermChange={videoSearch} />
           <VideoDetail video={this.state.selectedVideo} />
           <VideoList
             /*passing the below as a property to VideoList*/
